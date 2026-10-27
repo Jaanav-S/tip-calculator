@@ -36,3 +36,15 @@ def split(total, people, round_up=False):
     for i in range(leftover):
         shares[i] += CENT
     return shares
+
+
+def summarize(subtotal, percent, people, round_up=False):
+    """Compute everything needed to print a bill."""
+    tip = tip_amount(subtotal, percent)
+    total = to_money(subtotal) + tip
+    return {
+        "subtotal": to_money(subtotal),
+        "tip": tip,
+        "total": total,
+        "shares": split(total, people, round_up),
+    }
