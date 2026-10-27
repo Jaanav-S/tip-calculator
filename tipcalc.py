@@ -68,3 +68,13 @@ def parse_args(argv=None):
     parser.add_argument("--people", type=int, default=1, help="number of people splitting")
     parser.add_argument("--round-up", action="store_true", help="round each share up to whole dollars")
     return parser.parse_args(argv)
+
+
+def main(argv=None):
+    args = parse_args(argv)
+    summary = summarize(args.subtotal, args.tip, args.people, args.round_up)
+    print(format_summary(summary, args.tip))
+
+
+if __name__ == "__main__":
+    main()
