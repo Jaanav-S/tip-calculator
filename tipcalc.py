@@ -59,3 +59,12 @@ def format_summary(summary, percent):
         f"{'Total:':<12}${summary['total']}",
         f"{'Each pays:':<12}{shares}",
     ])
+
+
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(description="Split a bill, tip included.")
+    parser.add_argument("subtotal", type=Decimal, help="bill before tip")
+    parser.add_argument("--tip", type=Decimal, default=Decimal("15"), help="tip percent (default 15)")
+    parser.add_argument("--people", type=int, default=1, help="number of people splitting")
+    parser.add_argument("--round-up", action="store_true", help="round each share up to whole dollars")
+    return parser.parse_args(argv)
