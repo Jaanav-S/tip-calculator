@@ -48,3 +48,14 @@ def summarize(subtotal, percent, people, round_up=False):
         "total": total,
         "shares": split(total, people, round_up),
     }
+
+
+def format_summary(summary, percent):
+    shares = ", ".join(f"${s}" for s in summary["shares"])
+    tip_label = f"Tip ({percent}%):"
+    return "\n".join([
+        f"{'Subtotal:':<12}${summary['subtotal']}",
+        f"{tip_label:<12}${summary['tip']}",
+        f"{'Total:':<12}${summary['total']}",
+        f"{'Each pays:':<12}{shares}",
+    ])
