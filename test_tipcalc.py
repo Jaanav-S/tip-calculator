@@ -33,3 +33,9 @@ def test_split_round_up():
 def test_split_needs_people():
     with pytest.raises(ValueError):
         split(Decimal("10"), 0)
+
+
+def test_summarize():
+    s = summarize("84.50", 18, 3)
+    assert s["total"] == Decimal("99.71")
+    assert len(s["shares"]) == 3
