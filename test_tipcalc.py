@@ -24,3 +24,12 @@ def test_split_sums_to_total():
     shares = split(Decimal("99.71"), 3)
     assert sum(shares) == Decimal("99.71")
     assert shares == [Decimal("33.24"), Decimal("33.24"), Decimal("33.23")]
+
+
+def test_split_round_up():
+    assert split(Decimal("99.71"), 3, round_up=True) == [Decimal("34")] * 3
+
+
+def test_split_needs_people():
+    with pytest.raises(ValueError):
+        split(Decimal("10"), 0)
