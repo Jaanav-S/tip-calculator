@@ -13,3 +13,8 @@ def test_to_money_rounds_half_up():
 def test_tip_amount():
     assert tip_amount("100", 15) == Decimal("15.00")
     assert tip_amount("84.50", 18) == Decimal("15.21")
+
+
+def test_tip_amount_rejects_negative():
+    with pytest.raises(ValueError):
+        tip_amount("10", -5)
