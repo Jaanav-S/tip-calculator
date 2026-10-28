@@ -18,3 +18,9 @@ def test_tip_amount():
 def test_tip_amount_rejects_negative():
     with pytest.raises(ValueError):
         tip_amount("10", -5)
+
+
+def test_split_sums_to_total():
+    shares = split(Decimal("99.71"), 3)
+    assert sum(shares) == Decimal("99.71")
+    assert shares == [Decimal("33.24"), Decimal("33.24"), Decimal("33.23")]
