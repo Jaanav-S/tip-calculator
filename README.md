@@ -28,3 +28,9 @@ few people, so the shares always add up to exactly the total.
 ```
 python -m pytest
 ```
+
+## Ideas
+
+- Per-person items instead of an even split
+- Currency symbols other than `$`
+- Tax as a separate line
