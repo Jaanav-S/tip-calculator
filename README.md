@@ -22,3 +22,9 @@ Add `--round-up` to have everyone pay a whole number of dollars.
 
 The total is divided into whole cents and any leftover cents go to the first
 few people, so the shares always add up to exactly the total.
+
+## Running the tests
+
+```
+python -m pytest
+```
