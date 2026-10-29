@@ -17,3 +17,8 @@ Each pays:  $33.24, $33.24, $33.23
 ```
 
 Add `--round-up` to have everyone pay a whole number of dollars.
+
+## How the split works
+
+The total is divided into whole cents and any leftover cents go to the first
+few people, so the shares always add up to exactly the total.
